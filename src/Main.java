@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     // Static list of users, acting as a database
-    private static ArrayList<User> users = new ArrayList<>();
+    private static Arr  ayList<User> users = new ArrayList<>();
+    private static AuthenticationService authService = new AuthenticationService();
 
     // Mock authentication service that always returns the first user when log in, and does nothing when sign up
     private static IAuthenticationService authService = new IAuthenticationService() {
@@ -105,7 +109,10 @@ public class Main {
         String password = scanner.nextLine();
         User user = authService.signUp(username, password);
         // TODO Now: Show a message based on the result of the signUp method:
-        // - If the user is not null, show "User <username> has been created successfully!"
-        // - If the user is null, show "The username is already taken!"
+        if (user != null) {
+            System.out.println("User " + user.getUsername() + " has been created successfully!");
+        } else {
+            System.out.println("The username is already taken!");
+        }
     }
 }
