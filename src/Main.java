@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     // Static list of users, acting as a database
     private static ArrayList<User> users = new ArrayList<>();
@@ -81,13 +84,19 @@ public class Main {
      * Handles the sign-up process.
      */
     public static void onSignUp() {
-        System.out.print("Enter your username: ");
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your username: ");
         String username = scanner.nextLine();
         System.out.print("Enter your password: ");
         String password = scanner.nextLine();
+
         User user = authService.signUp(username, password);
-        // TODO Later: Shows a message based on the result
+
+        if (user != null) {
+            System.out.println("User " + user.getUsername() + " has been created successfully!");
+        } else {
+            System.out.println("The username is already taken!");
+        }
     }
 
     /**
