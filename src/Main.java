@@ -82,19 +82,6 @@ public class Main {
     }
 
     /**
-     * Handles the sign-up process.
-     */
-    public static void onSignUp() {
-        System.out.print("Enter your username: ");
-        Scanner scanner = new Scanner(System.in);
-        String username = scanner.nextLine();
-        System.out.print("Enter your password: ");
-        String password = scanner.nextLine();
-        User user = authService.signUp(username, password);
-        // TODO Later: Shows a message based on the result
-    }
-
-    /**
      * Exits the application by setting the `isRunning` flag to false.
      */
     public static void onExit() {
@@ -115,4 +102,5 @@ public class Main {
             System.out.println("The username is already taken!");
         }
     }
+
 }
